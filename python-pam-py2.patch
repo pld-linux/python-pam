@@ -1,0 +1,29 @@
+--- python-pam-2.0.2/src/pam/__internals.py.orig	2022-03-18 01:23:10.000000000 +0100
++++ python-pam-2.0.2/src/pam/__internals.py	2024-07-21 19:05:20.343924566 +0200
+@@ -99,7 +99,7 @@ class PamHandle(Structure):
+         self.handle = 0
+ 
+     def __repr__(self):
+-        return f"<PamHandle {self.handle}>"
++        return "<PamHandle %s>" % self.handle
+ 
+ 
+ class PamMessage(Structure):
+@@ -125,7 +125,7 @@ conv_func = CFUNCTYPE(c_int,
+                       c_void_p)
+ 
+ 
+-def my_conv(n_messages, messages, p_response, libc, msg_list: list, password: bytes, encoding: str):
++def my_conv(n_messages, messages, p_response, libc, msg_list, password, encoding):
+     """Simple conversation function that responds to any
+        prompt where the echo is off with the supplied password"""
+     # Create an array of n_messages response objects
+@@ -385,7 +385,7 @@ class PamAuthenticator:
+             self.handle = None
+ 
+         if print_failure_messages and self.code != PAM_SUCCESS:  # pragma: no cover
+-            print(f"Failure: {self.reason}")
++            print("Failure: %s" % self.reason)
+ 
+         return auth_success == PAM_SUCCESS
+ 
