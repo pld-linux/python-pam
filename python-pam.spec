@@ -52,8 +52,8 @@ Moduł pam dla Pythona obsługujący py3 (oraz py2) na systemach
 linuksowych.
 
 %prep
-%setup -q -n python-pam-%{version}
-%patch0 -p1
+%setup -q
+%patch -P 0 -p1
 
 cat >setup.py <<EOF
 from setuptools import setup
