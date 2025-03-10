@@ -7,7 +7,7 @@ Summary:	Python PAM module using ctypes
 Summary(pl.UTF-8):	Moduł PAM dla Pythona wykorzystujący ctypes
 Name:		python-pam
 Version:	2.0.2
-Release:	1
+Release:	2
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/python-pam/
